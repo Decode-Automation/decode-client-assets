@@ -1,7 +1,7 @@
 {
   "client": "grey-wolf",
   "sourceUrl": "https://www.greywolfsafety.com/",
-  "capturedAt": "2026-10-06T13:59:49.126-05:00",
+  "capturedAt": "2026-10-06T14:05:25.034-05:00",
   "files": [
     {
       "file": "grey-wolf/logo-1.jpg",
@@ -9,7 +9,7 @@
       "alt": "grey wolf logo white back ground.jpg",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2Fb22654592872b2e9dff9a348d5f3eeaa/o-grey%20wolf%20logo%20white%20back%20ground.jpg/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-1.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/logo-2.png",
@@ -17,7 +17,7 @@
       "alt": "Featured Brands - Mechanix Wear",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2Fc21df864b6ebfb435adfa1ebd513c6b9/Mechanix%20wear%20logo.png/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-2.png",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/logo-3.jpg",
@@ -25,7 +25,7 @@
       "alt": "Featured Brands - Weiler",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F7403a88c0c7fac54201fdc2eb54812ae/WEILER_LOGO.jpg/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-3.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/logo-4.jpg",
@@ -33,7 +33,7 @@
       "alt": "Featured Brands - Simple Green",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F37a2721df2366ef33c8e7068e6cfdb86/SIMPLEGREEN_LOGO.jpg/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-4.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/logo-5.jpg",
@@ -41,7 +41,7 @@
       "alt": "Featured Brand - Lenox",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F6db44a013fef8bf5e6d1f8177f907d4c/LENOX_LOGO-2.jpg/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-5.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/logo-6.jpg",
@@ -49,7 +49,7 @@
       "alt": "Featured Brands - Scotch",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F7db944b39c2136befeb973749044fe2f/SCOTCH_LOGO.jpg/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-6.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/logo-7.jpg",
@@ -57,7 +57,7 @@
       "alt": "Featured Brands  - Zep Professional",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2Faf2d0f2d626196aad94c295009836e6a/ZEPPRO_LOGO.jpg/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-7.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/logo-8.jpg",
@@ -65,7 +65,7 @@
       "alt": "d",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F607fe267ef2c1df096b810afad865c43/B-LINE%20Logo.jpg/400x200",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/logo-8.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/social-1.jpg",
@@ -73,7 +73,7 @@
       "alt": "",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2Fb22654592872b2e9dff9a348d5f3eeaa/o-grey%20wolf%20logo%20white%20back%20ground.jpg/1250x800",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/social-1.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/icon-1.png",
@@ -81,7 +81,7 @@
       "alt": "",
       "sourceUrl": "https://www.greywolfsafety.com/apple-touch-icon.png",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/icon-1.png",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/icon-2.png",
@@ -89,7 +89,7 @@
       "alt": "",
       "sourceUrl": "https://www.greywolfsafety.com/favicon-32x32.png",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/icon-2.png",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/icon-3.png",
@@ -97,7 +97,7 @@
       "alt": "",
       "sourceUrl": "https://www.greywolfsafety.com/favicon-16x16.png",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/icon-3.png",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/icon-4.svg",
@@ -105,7 +105,7 @@
       "alt": "",
       "sourceUrl": "https://www.greywolfsafety.com/safari-pinned-tab.svg",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/icon-4.svg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-1.gif",
@@ -113,7 +113,7 @@
       "alt": "Gatorad Hero Banner",
       "sourceUrl": "https://default.assets-ors-prod.roccommercecloud.com/assets%2F562fd7d7a56a7059c97acdd1fd67708c/Banner%20-%20Gatorade%20-%20Full%20Width%20-%20Mar25.gif",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-1.gif",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-2.jpg",
@@ -121,7 +121,7 @@
       "alt": "Hero Banner - Safety",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2Fc611ec80134ce931db70b58bbbec9e36/safetyglasses.jpg/2000x2000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-2.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-3.jpg",
@@ -129,7 +129,7 @@
       "alt": "Hero Banner - RIDGID",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F5fa0b7bd89d93cb15c8b2a9181649f2f/Ridgid_Hero-Large_Banner_Jan25.jpg/2000x2000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-3.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-4.png",
@@ -137,7 +137,7 @@
       "alt": "Hero Banner - JanSan",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F7590c84285f485682ef6c7675835d67d/Janitorial_1858x520_2.png/2000x2000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-4.png",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-5.jpg",
@@ -145,7 +145,7 @@
       "alt": "112-34-8743M.jpg",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F56fa1f3224b4d86aec3ccd1660cb4b41/o-112-34-8743M.jpg/1000x1000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-5.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-6.jpg",
@@ -153,7 +153,7 @@
       "alt": "454-808074.jpg",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F4120638d7e360904e7a0a097af1e7f9f/o-454-808074.jpg/1000x1000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-6.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-7.jpg",
@@ -161,7 +161,7 @@
       "alt": "853-V8002210.jpg",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F65eb72a32563f81f3a52e375e1f06d3a/o-853-V8002210.jpg/1000x1000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-7.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-8.jpg",
@@ -169,7 +169,7 @@
       "alt": "579-214-UFAO.jpg",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F74a0043a85dcb6eab9133da3546e3319/o-579-214-UFAO.jpg/1000x1000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-8.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-9.jpg",
@@ -177,7 +177,7 @@
       "alt": "280-FSH10004.jpg",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F7fe4f1b28092213472009e98f6b88c91/o-280-FSH10004.jpg/1000x1000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-9.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-10.jpg",
@@ -185,7 +185,7 @@
       "alt": "308-04712.jpg",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F1525980077057afddd16fea9bcf51aa6/o-308-04712.jpg/1000x1000",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-10.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-11.png",
@@ -193,7 +193,7 @@
       "alt": "Honeywell Gloves Slideshow Banner",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F47f52a405064de756e927b2d4820136b/Honeywell-Full_Nov_%2724.png/2000x600",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-11.png",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-12.gif",
@@ -201,7 +201,7 @@
       "alt": "Sharpie Meanstreak",
       "sourceUrl": "https://default.assets-ors-prod.roccommercecloud.com/assets%2F2d50c16f3c52bf335b57b7df2a50aeef/10500KB_May_2023_Sharpie-680x270.gif",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-12.gif",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     },
     {
       "file": "grey-wolf/content-13.jpg",
@@ -209,7 +209,7 @@
       "alt": "LPS Tapmatic",
       "sourceUrl": "https://imagedelivery.net/OPPJb_bdYDZzd_Qkraim8w/roc%2Fors%2F1815b67eaed3d75a90d007540e8070c0/ITW_April_2023-680x270.jpg/2000x600",
       "rawUrl": "https://raw.githubusercontent.com/Decode-Automation/decode-client-assets/main/grey-wolf/content-13.jpg",
-      "status": "saved"
+      "status": "skipped: Your request is invalid or could not be processed by the service"
     }
   ]
 }
