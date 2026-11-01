@@ -6,9 +6,8 @@ original renders in ../original/). Every round edits THIS file, then re-renders.
     python3 build.py --round 2            # writes ../round-2/index.html + renders
     python3 build.py --round 2 --no-notes # same page without the yellow review notes
 
-One layout, two copy sets, switched by a picker bar at the top of the page:
-  COPY["mockup"] — round 1 wording with Josh's 1 Nov review notes applied
-  COPY["voice"]  — every line rewritten in Kily's voice (copy pass, 1 Nov)
+One layout and one copy set (COPY["mockup"]). Add a second set to COPY to get a
+picker bar for comparing wording (used in round 2).
 Renders: desktop-<set>.png (1440 @2x) and mobile-<set>.png (390 @2x).
 
 Needs: playwright (chromium). Fonts: Arimo (metric-identical to Liberation Sans).
@@ -49,7 +48,7 @@ COPY["mockup"] = {
     "label": "Mockup copy",
     "banner": "Follow the flowers- find us on social media @thecoppertulip",
     "cta": "Book your event",
-    "hero_eyebrow": "The interactive party favor",
+    "hero_eyebrow": "Pop-up flower bar",
     "hero_h1": "Fresh Flowers",
     "hero_h2": "Build Your Own Bouquet",
     "hero_body": ("We set up our cart and create a space for your guests to pick their own "
@@ -88,8 +87,9 @@ COPY["mockup"] = {
     "seasonal_btn": "See seasonal bouquets",
     "story_eyebrow": "Our story",
     "story_h": "Hi, we’re Kily and Meg.",
-    "story_body": ("We load the cart (and now the van) with fresh flowers and bring the whole flower bar "
-                   "to you, from backyard showers to office parties."),
+    "story_body": ("We spend a lot of time around weddings and events, and around here it was mostly basic "
+                   "flower displays. Nobody was doing it like we wanted to, so we built a cart (and now "
+                   "a van!), loaded it with single stems, and let your guests do the fun part."),
     "ex_eyebrow": "Extras",
     "ex_h": "Need extra decor or something special?",
     "extras": [("Vase add-on", "$5 each", None), ("Ribboned flower carrier", "$4 each", None),
@@ -111,91 +111,8 @@ COPY["mockup"] = {
     "end_body": "Request your event and we’ll reach out to talk color, inspiration and flower requests.",
 }
 
-# ---- Set 2: Kily's voice ---------------------------------------------------------
-# Sources: her 18 Oct, 21 Oct and 1 Nov emails, the 23 Oct kickoff call, and a study
-# of 10 US flower-bar sites (one booking label everywhere, stems on each card, pricing
-# rules in the FAQ only, a first-person About, a plain "request isn't a booking" line).
-# Her phrases kept: "We set up our cart…", her three steps, both package texts, "Need
-# extra decor for your party or something special", "the flowers are still yours. You
-# bought them", "it takes to make the cart full", "basic flower display frames in our
-# area… like we do with the cart… and now the van", "whoever is being celebrated".
-COPY["voice"] = {
-    "label": "Kily’s voice",
-    "banner": "Follow the flowers- find us on social media @thecoppertulip",
-    "cta": "Book your event",
-    "hero_eyebrow": "Pop-up flower bar",
-    "hero_h1": "Fresh Flowers",
-    "hero_h2": "Build Your Own Bouquet",
-    "hero_body": ("We set up our cart and create a space for your guests to pick their own flowers "
-                  "and create their own bouquet. It’s the party favor everybody actually takes home, "
-                  "made for corporate events, employee appreciation and brand launches."),
-    "occasions": ["Corporate events", "Employee appreciation", "Brand launches", "Showers & birthdays"],
-    "meet_eyebrow": "How it works",
-    "meet_h": "Single stems. Your colors. Their bouquet.",
-    "meet_body": ("We bring buckets of single flowers and your guests pick their own. No two bouquets "
-                  "come out the same, and every one goes home with whoever made it."),
-    "steps": [
-        ("Request your date", "Pick a date at least a week out and tell us about your party.", True),
-        ("Let’s talk flowers", "We will reach out to you to talk color, inspiration & flower requests.", False),
-        ("We bring the cart", "We set up our flower cart and help your guests create something they love.", False),
-    ],
-    "feat_eyebrow": "The party favor",
-    "feat_h": "A favor they made themselves.",
-    "feat_body": ("Every bouquet gets a waterproof wrap to match your event, plus ribbon. Want it extra "
-                  "cute? Upgrade to our pre-ribboned flower carriers."),
-    "pk_eyebrow": "Packages",
-    "pk_h": "Pick your flower bar.",
-    "pk_intro": ("Priced per guest. The difference is the flowers: Designer brings in the delicate, "
-                 "harder-to-find stems."),
-    "packages": [
-        {"name": "Classic", "price": "$40", "photo": 55, "pos": "50% 60%", "desc": CLASSIC_DESC,
-         "rows": ["7–9 stems per bouquet", "Roses, seasonal flowers, fillers & greenery", "Wraps & ribbon included"],
-         "note": None, "btn": "Book the Classic"},
-        {"name": "Designer", "price": "$65", "photo": 73, "pos": "40% 50%", "desc": DESIGNER_DESC,
-         "rows": ["12–14 stems per bouquet", "Roses, seasonal flowers & fillers, plus premium stems", "Wraps & ribbon included"],
-         "note": DESIGNER_FAV, "btn": "Book the Designer"},
-    ],
-    "pk_both": ("Both packages include bar setup, clean up, and all supplies needed to make a bouquet. "
-                "Waterproof bouquet wraps to complement your event and ribbon are included, but we also "
-                "offer flower holders that are pre-ribboned as an upgrade."),
-    "seasonal_eyebrow": "Seasonal pre-orders",
-    "seasonal_h": "Forgot the flowers? We’ve got you.",
-    "seasonal_body": ("Valentine’s, holiday ornaments and other seasonal goodies, ready to pre-order. "
-                      "Pick it, pay online, and grab it on pickup day."),
-    "seasonal_btn": "Shop seasonal pre-orders",
-    "story_eyebrow": "Our story",
-    "story_h": "Hi, we’re Kily and Meg.",
-    "story_body": ("We spend a lot of time around weddings and events, and around here it was mostly basic "
-                   "flower displays. Nobody was doing it like we wanted to, so we built a cart (and now "
-                   "a van!), loaded it with single stems, and let your guests do the fun part."),
-    "ex_eyebrow": "Extras",
-    "ex_h": "Need extra decor for your party or something special?",
-    "extras": [("Vase add-on", "$5 each", None),
-               ("Ribboned flower carrier", "$4 each", None),
-               ("Flower crown", "$45", "For whoever is being celebrated"),
-               ("Bud vase", "$35", None),
-               ("Small arrangement", "$65", None),
-               ("Large arrangement", "$120", None)],
-    "faq_eyebrow": "Good to know",
-    "faq_h": "Questions we get a lot",
-    "faq": [
-        ("What happens after I request a date?",
-         "Your request doesn’t book the date yet. We’ll reach out to talk color, inspiration and flower "
-         "requests, then send a 50% deposit invoice. Your date is yours once it’s paid, within 7 days."),
-        ("How far ahead should I book?", "At least a week before your event. No same-day bookings."),
-        ("Is there a minimum?", "Yes, $600. That’s what it takes to make the cart full!"),
-        ("How long do you stay?", "Two hours of flower bar fun. Need more time? It’s $75 an hour."),
-        ("How many guests can you do?",
-         "Our two floral assistants handle up to 30 guests. Bigger crowd? We’ll put together a custom quote."),
-        ("What happens to leftover flowers?",
-         "They’re yours! Even if some guests don’t make a bouquet, you bought the flowers, so they stay with you."),
-        ("Can I pick my colors?",
-         "Yes, that’s what our call is for. Flowers are seasonal, so some varieties change, but we’ll match your colors and vibe."),
-    ],
-    "end_kicker": "Let’s bloom",
-    "end_h": "Have a date in mind?",
-    "end_body": "Request your date and we’ll reach out to talk color, inspiration & flower requests.",
-}
+# Round 3 (Josh, 1 Nov): one copy set. The Kily's-voice set (round 2) was dropped; its
+# hero eyebrow and story text were kept here. Round-2 source is in git history.
 
 FOOTER_NOTE = ("Mockup for review. Photos are The Copper Tulip’s own. Logo is an interim lockup until "
                "the van logo file arrives. Fonts are stand-ins until the brand fonts are licensed for web.")
@@ -503,7 +420,7 @@ def page(notes=True, standalone=True):
     o = [head + "<title>Copper Tulip Homepage Mockup</title>"
          "<meta name=\"claude:viewport-fit-sides\" content=\"cover\">"
          f"<style>{CSS}{CSS2}</style>" + ("</head><body>" if standalone else "")]
-    o.append("<div class=pick><p>Copper Tulip homepage · compare the copy</p><div class=grp role=group aria-label='Copy'>"
+    if len(COPY) > 1: o.append("<div class=pick><p>Copper Tulip homepage · compare the copy</p><div class=grp role=group aria-label='Copy'>"
              + "".join(f"<button type=button data-k='{k}' aria-pressed='false'>{esc(COPY[k]['label'])}</button>" for k in COPY)
              + "</div></div>")
     for k in COPY:
