@@ -1,33 +1,54 @@
 """Copper Tulip homepage — van theme, Set A / Layout 4.
 
-Editable source for the mockup Kily picked on 1 Nov 2026. Rebuilt from the
-original Set A / Layout 4 renders (../original/) because no editable source
-existed. Every later round edits THIS file, then re-renders.
+Editable source for the layout Kily picked on 1 Nov 2026 (rebuilt from the
+original renders in ../original/). Every round edits THIS file, then re-renders.
 
-    python3 build.py            # writes ../round-N/index.html and the PNG renders
-    python3 build.py --round 2  # choose the output round folder
+    python3 build.py --round 2            # writes ../round-2/index.html + renders
+    python3 build.py --round 2 --no-notes # same page without the yellow review notes
 
-Needs: playwright (chromium). Fonts: Arimo (metric-identical to Liberation Sans,
-which is what renders when Arimo isn't installed). Photos come from
-../../../photos/ (Kily's real photos, resized for web).
+One layout, two copy sets, switched by a picker bar at the top of the page:
+  COPY["mockup"] — round 1 wording with Josh's 1 Nov review notes applied
+  COPY["voice"]  — every line rewritten in Kily's voice (copy pass, 1 Nov)
+Renders: desktop-<set>.png (1440 @2x) and mobile-<set>.png (390 @2x).
+
+Needs: playwright (chromium). Fonts: Arimo (metric-identical to Liberation Sans).
+Photos come from ../../../photos/ (Kily's real photos, resized for web).
 """
-import argparse, asyncio, os, pathlib
+import argparse, asyncio, pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent  # mockups/van-layout-4
 PHOTOS = "../../../photos"   # relative to a round folder
 LOGO = "../../../brand/lockup-cream-no-gift-wrapping.png"
+BOOK = "https://portal.decodeautomation.com/book/copper-tulip"  # her live booking page
 
 def ph(n):
     return f"{PHOTOS}/20267-31TheCopperTulip{n}.jpg"
 
-# ---------------------------------------------------------------- content
-# Kily's words (1 Nov email) are kept as written. Nothing invented: no phone,
-# no town, no reviews. Facts from the 23 Oct kickoff answers are marked (K).
-C = {
+# ---------------------------------------------------------------- shared facts
+# Kily's words (1 Nov email) where marked. Nothing invented: no phone, no town,
+# no reviews, no badge. Facts from the 23 Oct kickoff are marked (K).
+CLASSIC_DESC = ("Our cart loaded with the perfect colorway for your event. This package is perfect "
+                "for any flower lover and gives guests the perfect party favor to enjoy in their home.")
+DESIGNER_DESC = ("A whimsical collection that brings in delicate blooms & fun textures that you don’t "
+                 "see every day, with extra premium stems that create a designer feel, bringing "
+                 "movement and whimsy into every bouquet.")
+DESIGNER_FAV = ("Some of our favorites in this package include anemones, ranunculus, imported fancy "
+                "tulips, freesia and even dyed specialty flowers that create a whole vibe!")
+
+COPY = {}
+
+# ---- Set 1: round 1 wording, Josh's 1 Nov notes applied -----------------------
+# Changes from round 1: booking buttons say "Book your event" and open the booking
+# page; See packages scrolls to packages; step 1 is a request linked to the booking
+# page; step titles no longer repeat their descriptions; package buttons are
+# "Book the Classic"/"Book the Designer"; the pricing-rules line under the packages
+# is gone; footer Book column gone; the story section is back (Kily and Meg)
+# in place of the supplies section.
+COPY["mockup"] = {
+    "label": "Mockup copy",
     "banner": "Follow the flowers- find us on social media @thecoppertulip",
-    "nav": ["Packages", "How it works", "Extras", "FAQ"],
-    "cta": "Find your event date",
+    "cta": "Book your event",
     "hero_eyebrow": "The interactive party favor",
     "hero_h1": "Fresh Flowers",
     "hero_h2": "Build Your Own Bouquet",
@@ -40,9 +61,9 @@ C = {
     "meet_body": ("Our cart, loaded with fresh stems in your colors. Every guest builds a bouquet "
                   "and takes it home as their favor."),
     "steps": [
-        ("Find your event date", "Pick your date and tell us a little about your event."),
-        ("We reach out", "We will reach out to you to talk color, inspiration & flower requests."),
-        ("Create something they love", "We set up our flower cart and help your guests create something they love."),
+        ("Request your event", "Pick your date and tell us a little about your event.", True),
+        ("We reach out", "We will reach out to you to talk color, inspiration & flower requests.", False),
+        ("We bring the flower bar", "We set up our flower cart and help your guests create something they love.", False),
     ],
     "feat_eyebrow": "Every guest goes home happy",
     "feat_h": "Small bouquet. Big moment.",
@@ -50,43 +71,34 @@ C = {
                   "so every guest leaves with a finished bouquet."),
     "pk_eyebrow": "Packages",
     "pk_h": "Choose your flower bar.",
+    "pk_intro": None,
     "packages": [
-        {"name": "Classic", "price": "$40", "photo": 55, "pos": "50% 60%",
-         "desc": ("Our cart loaded with the perfect colorway for your event. This package is perfect "
-                  "for any flower lover and gives guests the perfect party favor to enjoy in their home."),
-         "rows": ["7–9 stems per bouquet", "Roses, seasonal flowers, fillers and greenery",
-                  "Wraps and ribbon included"],
-         "note": None},
-        {"name": "Designer", "price": "$65", "photo": 73, "pos": "40% 50%",
-         "desc": ("A whimsical collection that brings in delicate blooms & fun textures that you don’t "
-                  "see every day, with extra premium stems that create a designer feel, bringing "
-                  "movement and whimsy into every bouquet."),
-         "rows": ["12–14 stems per bouquet", "Roses, seasonal flowers and fillers, plus premium stems",
-                  "Wraps and ribbon included"],
-         "note": ("Some of our favorites in this package include anemones, ranunculus, imported fancy "
-                  "tulips, freesia and even dyed specialty flowers that create a whole vibe!")},
+        {"name": "Classic", "price": "$40", "photo": 55, "pos": "50% 60%", "desc": CLASSIC_DESC,
+         "rows": ["7–9 stems per bouquet", "Roses, seasonal flowers, fillers and greenery", "Wraps and ribbon included"],
+         "note": None, "btn": "Book the Classic"},
+        {"name": "Designer", "price": "$65", "photo": 73, "pos": "40% 50%", "desc": DESIGNER_DESC,
+         "rows": ["12–14 stems per bouquet", "Roses, seasonal flowers and fillers, plus premium stems", "Wraps and ribbon included"],
+         "note": DESIGNER_FAV, "btn": "Book the Designer"},
     ],
     "pk_both": ("Both packages include bar setup, clean up, and all supplies needed to make a bouquet. "
                 "Waterproof bouquet wraps and ribbon are included; pre-ribboned flower holders are an upgrade."),
-    # (K) minimum, extra hour, over-30 quote. $150 setup line left off: see Clarifications #16.
-    "pk_fine": "$600 event minimum · $75 per extra hour past two hours · More than 30 guests? We’ll quote it.",
     "seasonal_eyebrow": "Seasonal bouquets",
     "seasonal_h": "Seasonal bouquets, ready to pre-order.",
     "seasonal_body": "Holiday bouquets and seasonal specials, ordered ahead. Pick yours, pay online, and pick it up.",
     "seasonal_btn": "See seasonal bouquets",
-    "story_eyebrow": "All supplies included",
-    "story_h": "We bring the whole flower bar.",
-    "story_body": ("Bar setup, clean up, shears, wraps, ribbon and every stem. Our floral assistants run "
-                   "the cart while your guests build their bouquets."),
+    "story_eyebrow": "Our story",
+    "story_h": "Hi, we’re Kily and Meg.",
+    "story_body": ("We load the cart (and now the van) with fresh flowers and bring the whole flower bar "
+                   "to you, from backyard showers to office parties."),
     "ex_eyebrow": "Extras",
     "ex_h": "Need extra decor or something special?",
-    "extras": [("Vase add-on", "$5 each"), ("Ribboned flower carrier", "$4 each"),
-               ("Flower crown", "$45"), ("Bud vase", "$35"),
-               ("Small arrangement", "$65"), ("Large arrangement", "$120")],
-    "ex_photos": [(13, "50% 45%", "Ribboned flower carriers"), (83, "50% 55%", "Arrangements"),
-                  (37, "50% 40%", "Bud vases")],
+    "extras": [("Vase add-on", "$5 each", None), ("Ribboned flower carrier", "$4 each", None),
+               ("Flower crown", "$45", None), ("Bud vase", "$35", None),
+               ("Small arrangement", "$65", None), ("Large arrangement", "$120", None)],
+    "faq_eyebrow": "Good to know",
+    "faq_h": "Flower bar FAQs",
     "faq": [
-        ("What happens after I find my date?",
+        ("What happens after I request a date?",
          "We reach out to talk color, inspiration and flower requests, then send a 50% deposit invoice. Pay within 7 days to hold your date."),
         ("How far ahead should I book?", "At least a week before your event."),
         ("Is there a minimum?", "Yes. Our event minimum is $600."),
@@ -96,15 +108,103 @@ C = {
     ],
     "end_kicker": "Let’s bloom",
     "end_h": "Have a date in mind?",
-    "end_body": "Find your event date and we’ll reach out to talk color, inspiration and flower requests.",
-    "footer_note": ("Mockup for review. Photos are The Copper Tulip’s own. Logo is an interim lockup until "
-                    "the van logo file arrives. Fonts are stand-ins until the brand fonts are licensed for web."),
+    "end_body": "Request your event and we’ll reach out to talk color, inspiration and flower requests.",
 }
 
-# Review notes drawn on the frame (yellow tags). Remove for the build.
+# ---- Set 2: Kily's voice ---------------------------------------------------------
+# Sources: her 18 Oct, 21 Oct and 1 Nov emails, the 23 Oct kickoff call, and a study
+# of 10 US flower-bar sites (one booking label everywhere, stems on each card, pricing
+# rules in the FAQ only, a first-person About, a plain "request isn't a booking" line).
+# Her phrases kept: "We set up our cart…", her three steps, both package texts, "Need
+# extra decor for your party or something special", "the flowers are still yours. You
+# bought them", "it takes to make the cart full", "basic flower display frames in our
+# area… like we do with the cart… and now the van", "whoever is being celebrated".
+COPY["voice"] = {
+    "label": "Kily’s voice",
+    "banner": "Follow the flowers- find us on social media @thecoppertulip",
+    "cta": "Book your event",
+    "hero_eyebrow": "Pop-up flower bar",
+    "hero_h1": "Fresh Flowers",
+    "hero_h2": "Build Your Own Bouquet",
+    "hero_body": ("We set up our cart and create a space for your guests to pick their own flowers "
+                  "and create their own bouquet. It’s the party favor everybody actually takes home, "
+                  "made for corporate events, employee appreciation and brand launches."),
+    "occasions": ["Corporate events", "Employee appreciation", "Brand launches", "Showers & birthdays"],
+    "meet_eyebrow": "How it works",
+    "meet_h": "Single stems. Your colors. Their bouquet.",
+    "meet_body": ("We bring buckets of single flowers and your guests pick their own. No two bouquets "
+                  "come out the same, and every one goes home with whoever made it."),
+    "steps": [
+        ("Request your date", "Pick a date at least a week out and tell us about your party.", True),
+        ("Let’s talk flowers", "We will reach out to you to talk color, inspiration & flower requests.", False),
+        ("We bring the cart", "We set up our flower cart and help your guests create something they love.", False),
+    ],
+    "feat_eyebrow": "The party favor",
+    "feat_h": "A favor they made themselves.",
+    "feat_body": ("Every bouquet gets a waterproof wrap to match your event, plus ribbon. Want it extra "
+                  "cute? Upgrade to our pre-ribboned flower carriers."),
+    "pk_eyebrow": "Packages",
+    "pk_h": "Pick your flower bar.",
+    "pk_intro": ("Priced per guest. The difference is the flowers: Designer brings in the delicate, "
+                 "harder-to-find stems."),
+    "packages": [
+        {"name": "Classic", "price": "$40", "photo": 55, "pos": "50% 60%", "desc": CLASSIC_DESC,
+         "rows": ["7–9 stems per bouquet", "Roses, seasonal flowers, fillers & greenery", "Wraps & ribbon included"],
+         "note": None, "btn": "Book the Classic"},
+        {"name": "Designer", "price": "$65", "photo": 73, "pos": "40% 50%", "desc": DESIGNER_DESC,
+         "rows": ["12–14 stems per bouquet", "Roses, seasonal flowers & fillers, plus premium stems", "Wraps & ribbon included"],
+         "note": DESIGNER_FAV, "btn": "Book the Designer"},
+    ],
+    "pk_both": ("Both packages include bar setup, clean up, and all supplies needed to make a bouquet. "
+                "Waterproof bouquet wraps to complement your event and ribbon are included, but we also "
+                "offer flower holders that are pre-ribboned as an upgrade."),
+    "seasonal_eyebrow": "Seasonal pre-orders",
+    "seasonal_h": "Forgot the flowers? We’ve got you.",
+    "seasonal_body": ("Valentine’s, holiday ornaments and other seasonal goodies, ready to pre-order. "
+                      "Pick it, pay online, and grab it on pickup day."),
+    "seasonal_btn": "Shop seasonal pre-orders",
+    "story_eyebrow": "Our story",
+    "story_h": "Hi, we’re Kily and Meg.",
+    "story_body": ("We spend a lot of time around weddings and events, and around here it was mostly basic "
+                   "flower displays. Nobody was doing it like we wanted to, so we built a cart (and now "
+                   "a van!), loaded it with single stems, and let your guests do the fun part."),
+    "ex_eyebrow": "Extras",
+    "ex_h": "Need extra decor for your party or something special?",
+    "extras": [("Vase add-on", "$5 each", None),
+               ("Ribboned flower carrier", "$4 each", None),
+               ("Flower crown", "$45", "For whoever is being celebrated"),
+               ("Bud vase", "$35", None),
+               ("Small arrangement", "$65", None),
+               ("Large arrangement", "$120", None)],
+    "faq_eyebrow": "Good to know",
+    "faq_h": "Questions we get a lot",
+    "faq": [
+        ("What happens after I request a date?",
+         "Your request doesn’t book the date yet. We’ll reach out to talk color, inspiration and flower "
+         "requests, then send a 50% deposit invoice. Your date is yours once it’s paid, within 7 days."),
+        ("How far ahead should I book?", "At least a week before your event. No same-day bookings."),
+        ("Is there a minimum?", "Yes, $600. That’s what it takes to make the cart full!"),
+        ("How long do you stay?", "Two hours of flower bar fun. Need more time? It’s $75 an hour."),
+        ("How many guests can you do?",
+         "Our two floral assistants handle up to 30 guests. Bigger crowd? We’ll put together a custom quote."),
+        ("What happens to leftover flowers?",
+         "They’re yours! Even if some guests don’t make a bouquet, you bought the flowers, so they stay with you."),
+        ("Can I pick my colors?",
+         "Yes, that’s what our call is for. Flowers are seasonal, so some varieties change, but we’ll match your colors and vibe."),
+    ],
+    "end_kicker": "Let’s bloom",
+    "end_h": "Have a date in mind?",
+    "end_body": "Request your date and we’ll reach out to talk color, inspiration & flower requests.",
+}
+
+FOOTER_NOTE = ("Mockup for review. Photos are The Copper Tulip’s own. Logo is an interim lockup until "
+               "the van logo file arrives. Fonts are stand-ins until the brand fonts are licensed for web.")
+
+# Review notes drawn on the frame (yellow tags). --no-notes removes them for the build.
 NOTES = {
     "logo": "Interim logo: closest lockup we have (cream). Swap for the light van logo file when Kily sends it.",
     "seasonal": "Planned: Kily edits this section from her app.",
+    "story": "Draft from Kily’s emails and the kickoff call. Kily and Meg to confirm or rewrite.",
 }
 
 # ---------------------------------------------------------------- page
@@ -279,6 +379,31 @@ header .note{left:calc(50% - var(--w)/2 + 150px);top:92px}
  header .note{left:128px;top:76px;max-width:220px;font-size:11.5px}
 }
 """
+# Additions to the layout CSS: copy picker, links, story note, package intro, extras sub-line.
+CSS2 = r"""
+[hidden]{display:none!important}
+.pick{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#F1F3F5;border-bottom:1px solid #c9ced3;
+ padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+ display:flex;flex-direction:column;align-items:center;gap:8px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:#F1F3F5}
+.pick p{margin:0;font-size:14px;font-weight:600;color:#1d2328}
+.pick .grp{display:inline-flex;border:1.5px solid #1d2328;border-radius:6px;overflow:hidden;background:#fff}
+.pick button{font:600 14px/1 system-ui,-apple-system,sans-serif;color:#1d2328;background:#fff;border:0;border-left:1px solid #c9ced3;padding:10px 18px;cursor:pointer}
+.pick button:first-child{border-left:0}
+.pick button[aria-pressed="true"]{background:#1d2328;color:#fff}
+.pick button:focus-visible{outline:3px solid #4c7ec9;outline-offset:-3px}
+.rendering .pick{display:none}
+nav a{color:inherit;text-decoration:none}
+.step h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--peach);text-decoration-thickness:3px;text-underline-offset:5px}
+.pk .intro{color:#e8efe9;font-size:18px;margin:-24px 0 36px;max-width:720px}
+.exl .sub{font-size:15px;opacity:.85;margin-top:2px}
+.story{position:relative}.story .note{left:calc(50% - var(--w)/2 + 500px);top:40px}
+@media (max-width:760px){
+ .pick p{font-size:13px}
+ .pk .intro{font-size:16px;margin:-12px 0 24px}
+ .story .note{position:relative;left:auto;top:auto;margin:14px 14px 0}
+}
+"""
 
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -286,98 +411,137 @@ def esc(s):
 def bg(n, pos="50% 50%"):
     return f"background-image:url('{ph(n)}');background-position:{pos}"
 
-def page(notes=True):
-    c = C
+def book(label, cls="btn"):
+    return f"<a class='{cls}' href='{BOOK}' target='_blank' rel='noopener'>{esc(label)}</a>"
+
+def variant(key, notes):
+    c = COPY[key]
     o = []
     a = o.append
-    a("<!doctype html><html lang=en><head><meta charset=utf-8>"
-      "<meta name=viewport content='width=device-width,initial-scale=1'>"
-      f"<title>The Copper Tulip — Pop-up flower bar</title><style>{CSS}</style></head><body>")
+    k = key  # anchor suffix, so both sets can sit on one page
     banner = esc(c["banner"]).replace("@thecoppertulip", "<b>@thecoppertulip</b>")
     a(f"<div class=banner>{banner}</div><div class=sc-down></div>")
     a("<header><div class='wrap hdr'>"
-      f"<a class=logo href='#'><img src='{LOGO}' alt='The Copper Tulip, pop-up flower bar'></a>"
-      "<nav>" + "".join(f"<span>{esc(x)}</span>" for x in c["nav"]) + "</nav>"
-      f"<a class=btn href='#'>{esc(c['cta'])}</a></div>")
+      f"<a class=logo href='#top-{k}' id='top-{k}'><img src='{LOGO}' alt='The Copper Tulip, pop-up flower bar'></a>"
+      f"<nav><a href='#packages-{k}'>Packages</a><a href='#how-{k}'>How it works</a>"
+      f"<a href='#extras-{k}'>Extras</a><a href='#faq-{k}'>FAQ</a></nav>"
+      f"{book(c['cta'])}</div>")
     if notes: a(f"<div class=note>{esc(NOTES['logo'])}</div>")
     a("</header>")
-    # hero: photo 49 (no cart sign). 94 not used: its badge reads "gift wrapping".
+    # hero: photo 49 (no cart sign). 94's sign reads "gift wrapping" and stays cropped out.
     a(f"<div class=hero-wrap><section class=hero style=\"{bg(49,'50% 62%')}\"><div class=ph style=\"{bg(49,'55% 60%')}\"></div>"
       f"<div class=card><p class=eyebrow>{esc(c['hero_eyebrow'])}</p><h1>{esc(c['hero_h1'])}</h1>"
       f"<h2>{esc(c['hero_h2'])}</h2><p>{esc(c['hero_body'])}</p><div class=btns>"
-      f"<a class=btn href='#'>{esc(c['cta'])}</a><a class='btn ghost' href='#'>See packages</a></div></div></section></div>")
+      f"{book(c['cta'])}<a class='btn ghost' href='#packages-{k}'>See packages</a></div></div></section></div>")
     a("<div class=occ>" + "".join(f"<span>{esc(x)}</span>" for x in c["occasions"]) + "</div><div class=sc-down></div>")
-    # meet + steps
-    a(f"<section class='wrap meet'><div class=top><div><p class=eyebrow>{esc(c['meet_eyebrow'])}</p>"
+    a(f"<section class='wrap meet' id='how-{k}'><div class=top><div><p class=eyebrow>{esc(c['meet_eyebrow'])}</p>"
       f"<h2>{esc(c['meet_h'])}</h2></div><p>{esc(c['meet_body'])}</p></div><div class=steps>")
-    for i, (t, d) in enumerate(c["steps"], 1):
-        a(f"<div class=step><div class=n>Step {i}</div><h3>{esc(t)}</h3><p>{esc(d)}</p></div>")
+    for i, (t, d, link) in enumerate(c["steps"], 1):
+        title = f"<a href='{BOOK}' target='_blank' rel='noopener'>{esc(t)}</a>" if link else esc(t)
+        a(f"<div class=step><div class=n>Step {i}</div><h3>{title}</h3><p>{esc(d)}</p></div>")
     a("</div></section>")
     a(f"<section class='wrap feat'><div class=img style=\"{bg(62,'50% 42%')}\"></div><div>"
       f"<p class=eyebrow>{esc(c['feat_eyebrow'])}</p><h2>{esc(c['feat_h'])}</h2><p>{esc(c['feat_body'])}</p></div></section>")
-    # packages
-    a("<div class='sc-up pk-top'></div><section class=pk><div class=wrap>"
-      f"<p class=eyebrow>{esc(c['pk_eyebrow'])}</p><h2>{esc(c['pk_h'])}</h2><div class=pcards>")
+    a(f"<div class='sc-up pk-top'></div><section class=pk id='packages-{k}'><div class=wrap>"
+      f"<p class=eyebrow>{esc(c['pk_eyebrow'])}</p><h2>{esc(c['pk_h'])}</h2>")
+    if c["pk_intro"]: a(f"<p class=intro>{esc(c['pk_intro'])}</p>")
+    a("<div class=pcards>")
     for p in c["packages"]:
         a(f"<div class=pc><div class=img style=\"{bg(p['photo'],p['pos'])}\"></div><div class=b>"
           f"<h3>{esc(p['name'])}</h3><div class=price>{p['price']} <small>per guest</small></div>"
           f"<p class=desc>{esc(p['desc'])}</p><ul>" + "".join(f"<li>{esc(r)}</li>" for r in p["rows"]) + "</ul>")
         if p["note"]: a(f"<p class=fav>{esc(p['note'])}</p>")
-        a(f"<div class=sp></div><a class=btn href='#'>Check this date</a></div></div>")
-    a(f"</div><p class=both>{esc(c['pk_both'])}</p><p class=fine>{esc(c['pk_fine'])}</p></div></section>"
-      "<div class='sc-down pk-bot'></div>".replace("sc-down pk-bot", "sc-down pk-bot") )
-    # seasonal
-    a(f"<section class='wrap seas'>")
+        a(f"<div class=sp></div>{book(p['btn'])}</div></div>")
+    a(f"</div><p class=both>{esc(c['pk_both'])}</p></div></section><div class='sc-down pk-bot'></div>")
+    a("<section class='wrap seas'>")
     if notes: a(f"<div class=note>{esc(NOTES['seasonal'])}</div>")
     a(f"<div><p class=eyebrow>{esc(c['seasonal_eyebrow'])}</p><h2>{esc(c['seasonal_h'])}</h2>"
-      f"<p>{esc(c['seasonal_body'])}</p><a class=btn href='#'>{esc(c['seasonal_btn'])}</a></div>"
+      f"<p>{esc(c['seasonal_body'])}</p><a class=btn href='#top-{k}'>{esc(c['seasonal_btn'])}</a></div>"
       f"<div class=img style=\"{bg(77,'50% 45%')}\"></div></section>")
-    # story / supplies
-    a(f"<div class=story-wrap><section class=story style=\"{bg(52,'50% 55%')}\"><div class=ph style=\"{bg(52,'45% 55%')}\"></div>"
-      f"<div class=card><p class=eyebrow>{esc(c['story_eyebrow'])}</p><h2>{esc(c['story_h'])}</h2>"
-      f"<p>{esc(c['story_body'])}</p></div></section></div>")
-    # extras
-    a(f"<section class=ex><div class=wrap><p class=eyebrow>{esc(c['ex_eyebrow'])}</p><h2>{esc(c['ex_h'])}</h2><div class=exph>")
-    for n, pos, alt in c["ex_photos"]:
+    # story: photo 94 cropped to the umbrella and flowers, above the cart sign.
+    a(f"<div class=story-wrap><section class=story style=\"{bg(94,'50% 30%')}\"><div class=ph style=\"{bg(94,'50% 8%')}\"></div>")
+    a(f"<div class=card><p class=eyebrow>{esc(c['story_eyebrow'])}</p><h2>{esc(c['story_h'])}</h2>"
+      f"<p>{esc(c['story_body'])}</p></div>")
+    if notes: a(f"<div class=note>{esc(NOTES['story'])}</div>")
+    a("</section></div>")
+    a(f"<section class=ex id='extras-{k}'><div class=wrap><p class=eyebrow>{esc(c['ex_eyebrow'])}</p><h2>{esc(c['ex_h'])}</h2><div class=exph>")
+    for n, pos, alt in (( 13, "50% 45%", "Ribboned flower carriers"), (83, "50% 55%", "Arrangements"), (37, "50% 40%", "Bud vases")):
         a(f"<div role=img aria-label='{esc(alt)}' style=\"{bg(n,pos)}\"></div>")
-    a("</div><div class=exl>" + "".join(f"<div><h3>{esc(n)}</h3><p>{esc(pr)}</p></div>" for n, pr in c["extras"])
-      + "</div></div></section>")
-    # faq
-    a("<section class='wrap faq'><p class=eyebrow>Good to know</p><h2>Flower bar FAQs</h2><div class=list>")
+    a("</div><div class=exl>")
+    for n, pr, sub in c["extras"]:
+        a(f"<div><h3>{esc(n)}</h3><p>{esc(pr)}</p>" + (f"<p class=sub>{esc(sub)}</p>" if sub else "") + "</div>")
+    a("</div></div></section>")
+    a(f"<section class='wrap faq' id='faq-{k}'><p class=eyebrow>{esc(c['faq_eyebrow'])}</p><h2>{esc(c['faq_h'])}</h2><div class=list>")
     for q, ans in c["faq"]:
         a(f"<div class=q><h3>{esc(q)}</h3><p>{esc(ans)}</p></div>")
     a("</div></section>")
     a(f"<section class=end><p class=k>{esc(c['end_kicker'])}</p><h2>{esc(c['end_h'])}</h2>"
-      f"<p>{esc(c['end_body'])}</p><a class=btn href='#'>{esc(c['cta'])}</a></section>")
+      f"<p>{esc(c['end_body'])}</p>{book(c['cta'])}</section>")
     a("<div class='sc-up ft-top'></div><footer><div class='wrap row'>"
       f"<img src='{LOGO}' alt=''>"
       "<div><h4>The Copper Tulip</h4><p>Pop-up flower bar</p></div>"
-      "<div><h4>Follow</h4><p>@thecoppertulip · Instagram · Facebook</p></div>"
-      "<div><h4>Book</h4><p>At least a week ahead</p></div></div></footer>")
-    if notes: a(f"<div class=mk>{esc(c['footer_note'])}</div>")
-    a("</body></html>")
+      "<div><h4>Follow</h4><p>@thecoppertulip · Instagram · Facebook</p></div></div></footer>")
+    if notes: a(f"<div class=mk>{esc(FOOTER_NOTE)}</div>")
+    return "".join(o)
+
+PICK_JS = r"""
+<script>
+(function(){
+ var sets=['mockup','voice'];
+ function show(k){sets.forEach(function(s){document.getElementById('v-'+s).hidden=(s!==k);});
+  document.querySelectorAll('.pick button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k);});}
+ document.querySelectorAll('.pick button').forEach(function(b){b.onclick=function(){show(b.dataset.k);
+  try{history.replaceState(null,'','#'+b.dataset.k)}catch(e){location.hash=b.dataset.k}window.scrollTo(0,0);};});
+ function fromHash(){var h=(location.hash||'').slice(1);if(sets.indexOf(h)>-1)show(h);}
+ window.addEventListener('hashchange',fromHash);show('mockup');fromHash();
+})();
+</script>"""
+
+def page(notes=True, standalone=True):
+    head = ("<!doctype html><html lang=en><head><meta charset=utf-8>"
+            "<meta name=viewport content='width=device-width,initial-scale=1,viewport-fit=cover'>") if standalone else ""
+    o = [head + "<title>Copper Tulip Homepage Mockup</title>"
+         "<meta name=\"claude:viewport-fit-sides\" content=\"cover\">"
+         f"<style>{CSS}{CSS2}</style>" + ("</head><body>" if standalone else "")]
+    o.append("<div class=pick><p>Copper Tulip homepage · compare the copy</p><div class=grp role=group aria-label='Copy'>"
+             + "".join(f"<button type=button data-k='{k}' aria-pressed='false'>{esc(COPY[k]['label'])}</button>" for k in COPY)
+             + "</div></div>")
+    for k in COPY:
+        o.append(f"<div class=v id='v-{k}'>{variant(k, notes)}</div>")
+    o.append(PICK_JS + ("</body></html>" if standalone else ""))
     return "".join(o)
 
 async def render(html_path, out_dir):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         b = await p.chromium.launch()
-        for name, w in (("desktop", 1440), ("mobile", 390)):
-            pg = await b.new_page(viewport={"width": w, "height": 900}, device_scale_factor=2)
-            await pg.goto(html_path.as_uri())
-            await pg.wait_for_load_state("networkidle")
-            await pg.screenshot(path=str(out_dir / f"{name}.png"), full_page=True)
-            await pg.close()
+        for k in COPY:
+            for name, w in (("desktop", 1440), ("mobile", 390)):
+                pg = await b.new_page(viewport={"width": w, "height": 900}, device_scale_factor=2)
+                await pg.goto(html_path.as_uri() + "#" + k)
+                await pg.wait_for_load_state("networkidle")
+                await pg.evaluate("document.documentElement.classList.add('rendering')")
+                await pg.screenshot(path=str(out_dir / f"{name}-{k}.png"), full_page=True)
+                await pg.close()
         await b.close()
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--round", default="1")
+    ap.add_argument("--round", default="2")
     ap.add_argument("--no-notes", action="store_true")
+    ap.add_argument("--artifact", help="also write an artifact copy (no html/head/body; photos/ and brand/ beside it) to this folder")
     args = ap.parse_args()
     out = ROOT / f"round-{args.round}"
     out.mkdir(exist_ok=True)
     f = out / "index.html"
     f.write_text(page(notes=not args.no_notes), encoding="utf-8")
     asyncio.run(render(f, out))
+    if args.artifact:
+        import re, shutil
+        dst = pathlib.Path(args.artifact); (dst / "photos").mkdir(parents=True, exist_ok=True); (dst / "brand").mkdir(exist_ok=True)
+        h = page(notes=not args.no_notes, standalone=False).replace("../../../photos/", "photos/").replace("../../../brand/", "brand/")
+        (dst / "index.html").write_text(h, encoding="utf-8")
+        for n in sorted(set(re.findall(r"photos/(20267-31TheCopperTulip\d+\.jpg)", h))):
+            shutil.copy(ROOT.parent.parent / "photos" / n, dst / "photos" / n)
+        shutil.copy(ROOT.parent.parent / "brand" / "lockup-cream-no-gift-wrapping.png", dst / "brand")
     print("wrote", f, "and renders")
