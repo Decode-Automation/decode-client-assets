@@ -13,3 +13,4 @@ round-2: Josh's 1 Nov review applied (booking buttons "Book your event" to her l
 round-3: one copy set again. Round 1 wording with Josh's review applied, plus two picks from the Kily's-voice set: hero eyebrow "Pop-up flower bar" and the "Hi, we're Kily and Meg" story text. Picker removed.
 round-4: Contact section ("Questions?" form: name, email, phone, event date, message) above the closing band, Contact link in the nav; "Let's bloom" centred. Build note: Replit + Resend connector, messages saved to the site DB and emailed to Kily with an auto-reply; needs her domain.
 round-5: nav in the brand label style (bold green caps, letter-spaced); seasonal note says the section is live from her app (order_website: show, heading, body, photo, button text, pre-order link).
+round-5-build: the same page with --no-notes. These are the renders the Replit build spec uses; the review notes stay only in the mockup.

@@ -1,0 +1,218 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1,viewport-fit=cover'><title>Copper Tulip Homepage Mockup</title><meta name="claude:viewport-fit-sides" content="cover"><style>
+:root{--peach:#F4A981;--cream:#FCF7EE;--blush:#FAEEE4;--green:#4C7E5C;--green-d:#3E6B4F;--teal:#2E5E61;
+--copper:#C8613A;--ink:#2a2f2c;--body:#5d625f;--rule:#e6dccd;--w:1120px}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--cream);color:var(--body);font-family:Arimo,"Liberation Sans",Arial,sans-serif;font-size:17px;line-height:1.55}
+h1,h2,h3{color:var(--green-d);margin:0;letter-spacing:-.01em;line-height:1.12}
+.wrap{width:var(--w);max-width:calc(100% - 40px);margin:0 auto}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin:0 0 14px}
+.btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:16px;padding:14px 28px;border-radius:999px;text-decoration:none;border:2px solid var(--green)}
+.btn.ghost{background:transparent;color:var(--green)}
+/* scallops */
+.sc-down{height:40px;background-image:radial-gradient(circle 60px at 50% -20px,var(--c) 59.5px,transparent 60px);background-repeat:repeat-x;background-size:118px 40px;background-position:-2px 0}
+.sc-up{height:40px;background-image:radial-gradient(circle 60px at 50% calc(100% + 20px),var(--c) 59.5px,transparent 60px);background-repeat:repeat-x;background-size:118px 40px;background-position:-2px 0}
+/* banner */
+.banner{background:var(--peach);text-align:center;color:var(--ink);font-size:13.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:14px 20px 4px}
+.banner b{letter-spacing:.06em;text-transform:none;font-size:15px}
+.banner+.sc-down{--c:var(--peach)}
+/* header */
+header{position:relative}
+.hdr{display:flex;align-items:center;justify-content:space-between;height:150px}
+.logo{display:block;width:132px;height:132px;margin-top:-26px}
+.logo img{width:100%;height:100%;object-fit:contain;display:block}
+nav{display:flex;gap:30px;font-size:13.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d);margin-left:-60px}
+/* hero */
+.hero{position:relative;height:760px;background:#ddd center/cover no-repeat}
+.hero .ph,.story .ph{display:none}
+.hero .card{position:absolute;left:calc(50% - var(--w)/2);top:130px;width:590px;background:var(--cream);border-radius:24px;padding:44px 44px 40px}
+.hero h1{font-size:70px;white-space:nowrap;line-height:1;font-weight:700;color:var(--green-d);letter-spacing:-.025em}
+.hero h2{font-size:31px;font-weight:400;color:var(--teal);margin:12px 0 20px}
+.hero p{margin:0 0 30px;font-size:17.5px}
+.hero .btns{display:flex;gap:14px;flex-wrap:wrap}
+.occ{background:var(--green);color:#fff;text-align:center;font-size:13.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:30px 20px 12px}
+.occ span{margin:0 22px;white-space:nowrap}
+.occ+.sc-down{--c:var(--green)}
+/* meet */
+.meet{padding:96px 0 40px}
+.meet .top{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end}
+.meet h2{font-size:46px;line-height:1.08}
+.meet .top p{font-size:19px;margin:0 0 8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.step{border-top:1.5px solid var(--rule);padding-top:20px}
+.step .n{color:var(--copper);font-size:20px}
+.step h3{font-size:22px;margin:2px 0 8px}
+.step p{margin:0;font-size:16px}
+.feat{display:grid;grid-template-columns:528px 1fr;gap:64px;align-items:center;padding:56px 0 100px}
+.feat .img{height:440px;border-radius:22px;background:center/cover no-repeat}
+.feat h2{font-size:46px;line-height:1.08;margin-bottom:18px}
+.feat p{font-size:19px;margin:0}
+/* packages */
+.pk-top{--c:var(--green);background-color:var(--cream)}
+.pk{background:var(--green);padding:56px 0 64px;color:#e8efe9}
+.pk .eyebrow{color:var(--peach)}
+.pk h2{color:#fff;font-size:46px;margin-bottom:40px}
+.pcards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pc{color:var(--body);background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.pc .img{height:330px;background:center/cover no-repeat}
+.pc .b{padding:28px 30px 30px;display:flex;flex-direction:column;flex:1}
+.pc h3{font-size:24px}
+.pc .price{color:var(--green-d);font-size:38px;font-weight:700;margin:6px 0 12px}
+.pc .price small{font-size:16px;font-weight:400;color:var(--body)}
+.pc .desc{margin:0 0 14px;font-size:16px}
+.pc ul{list-style:none;padding:0;margin:0 0 6px}
+.pc li{border-top:1px solid #efe7da;padding:10px 0;font-size:15.5px}
+.pc .fav{font-size:14.5px;color:var(--copper);margin:6px 0 0}
+.pc .sp{flex:1;min-height:20px}
+.pc .btn{text-align:center}
+.pk .both{font-size:17px;color:#fff;margin:34px 0 8px;max-width:860px}
+.pk .fine{font-size:15px;margin:0}
+.pk-bot{--c:var(--green);background-color:var(--cream)}
+/* seasonal */
+.seas{display:grid;grid-template-columns:1fr 528px;gap:64px;align-items:center;padding:90px 0 100px}
+.seas h2{font-size:46px;line-height:1.08;margin-bottom:18px}
+.seas p{font-size:19px;margin:0 0 28px}
+.seas .img{height:560px;border-radius:22px;background:center/cover no-repeat}
+/* story */
+.story{position:relative;height:600px;background:center/cover no-repeat}
+.story .card{position:absolute;left:calc(50% - var(--w)/2);top:130px;width:470px;background:var(--cream);border-radius:22px;padding:40px}
+.story h2{font-size:42px;line-height:1.1;margin-bottom:16px}
+.story p{margin:0;font-size:17px}
+/* extras */
+.ex{background:var(--teal);color:#dfe9e8;padding:90px 0 100px}
+.ex .eyebrow{color:var(--peach)}
+.ex h2{color:#fff;font-size:46px;margin-bottom:40px}
+.exph{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.exph div{height:300px;border-radius:20px;background:center/cover no-repeat}
+.exl{display:grid;grid-template-columns:repeat(3,1fr);column-gap:24px;row-gap:28px}
+.exl div{border-top:1px solid rgba(255,255,255,.28);padding-top:16px}
+.exl h3{color:#fff;font-size:21px;font-weight:700;margin-bottom:2px}
+.exl p{margin:0;font-size:17px}
+/* faq */
+.faq{padding:96px 0 100px;text-align:center}
+.faq h2{font-size:46px;margin-bottom:28px}
+.faq .list{width:796px;max-width:100%;margin:0 auto;text-align:left;display:grid;gap:12px}
+.faq .q{background:#fff;border-radius:16px;padding:20px 22px}
+.faq .q h3{font-size:17.5px;margin-bottom:6px}
+.faq .q p{margin:0;font-size:16px}
+/* end */
+.end{background:var(--blush);text-align:center;padding:90px 20px 94px}
+.end .k{font-size:30px;color:var(--teal);margin:0 auto}
+.end h2{font-size:48px;margin:0 0 20px}
+.end p{font-size:19px;max-width:560px;margin:0 auto 32px}
+.ft-top{--c:var(--peach);background-color:var(--blush)}
+footer{background:var(--peach);color:var(--ink);padding:44px 0 56px}
+footer .row{display:flex;gap:56px;align-items:center}
+footer img{width:96px;height:96px;object-fit:contain}
+footer h4{margin:0 0 6px;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase}
+footer p{margin:0;font-size:16px}
+.mk{background:#263a2f;color:#d9e2dc;font-size:13px;padding:10px 40px}
+/* review notes */
+.note{position:absolute;z-index:5;background:#FFE45C;color:#222;font:600 13px/1.35 Arimo,"Liberation Sans",sans-serif;padding:9px 12px;border-radius:6px;box-shadow:0 2px 0 rgba(0,0,0,.15);max-width:270px}
+.note:before{content:"REVIEW NOTE ";font-weight:800;letter-spacing:.06em}
+header .note{left:calc(50% - var(--w)/2 + 150px);top:92px}
+.seas{position:relative}.seas .note{left:0;top:40px}
+
+@media (max-width:760px){
+ :root{--w:100%}
+ body{font-size:16px}
+ .wrap{max-width:calc(100% - 36px)}
+ .banner{font-size:11px;letter-spacing:.1em;padding:12px 14px 2px}
+ .banner b{font-size:12.5px}
+ .sc-down,.sc-up{height:24px;background-size:64px 24px;background-image:radial-gradient(circle 33px at 50% -10px,var(--c) 32.5px,transparent 33px)}
+ .sc-up{background-image:radial-gradient(circle 33px at 50% calc(100% + 10px),var(--c) 32.5px,transparent 33px)}
+ .hdr{height:118px}
+ .logo{width:104px;height:104px;margin-top:-16px}
+ nav{display:none}
+ .hdr .btn{font-size:14.5px;padding:11px 18px}
+ .hero{height:auto;background:none!important}
+ .hero .ph,.story .ph{display:block}
+ .hero .ph{height:340px;background:center/cover no-repeat}
+ .hero .card{position:relative;left:auto;top:auto;width:auto;margin:-70px 14px 0;padding:30px 22px 28px}
+ .hero h1{font-size:52px}
+ .hero h2{font-size:23px}
+ .hero p{font-size:16.5px}
+ .occ{font-size:11.5px;letter-spacing:.18em;padding:26px 16px 10px;line-height:2.1}
+ .occ span{display:block;margin:0}
+ .hero-wrap{padding-bottom:34px}
+ .meet{padding:56px 0 20px}
+ .meet .top{grid-template-columns:1fr;gap:18px}
+ .meet h2,.feat h2,.pk h2,.seas h2,.ex h2,.faq h2{font-size:32px}
+ .meet .top p,.feat p,.seas p{font-size:17px}
+ .steps{grid-template-columns:1fr;gap:26px;margin-top:36px}
+ .feat{grid-template-columns:1fr;gap:28px;padding:40px 0 64px}
+ .feat .img{height:290px}
+ .pk{padding:40px 0 48px}
+ .pk h2{margin-bottom:26px}
+ .pcards{grid-template-columns:1fr;gap:20px}
+ .pc .img{height:240px}
+ .pc .b{padding:24px 22px 24px}
+ .seas{grid-template-columns:1fr;gap:28px;padding:56px 0 64px}
+ .seas .img{height:380px;order:2}
+ .seas .note{position:relative;top:auto;margin-bottom:10px}
+ .story{height:auto;background:none!important}
+ .story .ph{height:280px;background:center/cover no-repeat}
+ .story .card{position:relative;left:auto;top:auto;width:auto;margin:-60px 14px 0;padding:28px 22px}
+ .story h2{font-size:30px}
+ .story-wrap{padding-bottom:48px}
+ .ex{padding:56px 0 64px}
+ .ex h2{margin-bottom:26px}
+ .exph{grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+ .exph div{height:190px}
+ .exph div:first-child{grid-column:1/3;height:240px}
+ .exl{grid-template-columns:1fr 1fr;row-gap:22px;column-gap:16px}
+ .exl h3{font-size:18px}
+ .faq{padding:56px 0 64px}
+ .end{padding:60px 20px 64px}
+ .end .k{font-size:24px}.end h2{font-size:34px}.end p{font-size:17px}
+ footer .row{flex-direction:column;align-items:flex-start;gap:22px}
+ .mk{padding:10px 18px}
+ header .note{left:128px;top:76px;max-width:220px;font-size:11.5px}
+}
+
+[hidden]{display:none!important}
+.pick{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#F1F3F5;border-bottom:1px solid #c9ced3;
+ padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+ display:flex;flex-direction:column;align-items:center;gap:8px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:#F1F3F5}
+.pick p{margin:0;font-size:14px;font-weight:600;color:#1d2328}
+.pick .grp{display:inline-flex;border:1.5px solid #1d2328;border-radius:6px;overflow:hidden;background:#fff}
+.pick button{font:600 14px/1 system-ui,-apple-system,sans-serif;color:#1d2328;background:#fff;border:0;border-left:1px solid #c9ced3;padding:10px 18px;cursor:pointer}
+.pick button:first-child{border-left:0}
+.pick button[aria-pressed="true"]{background:#1d2328;color:#fff}
+.pick button:focus-visible{outline:3px solid #4c7ec9;outline-offset:-3px}
+.rendering .pick{display:none}
+nav a{color:inherit;text-decoration:none}
+.step h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--peach);text-decoration-thickness:3px;text-underline-offset:5px}
+.pk .intro{color:#e8efe9;font-size:18px;margin:-24px 0 36px;max-width:720px}
+.exl .sub{font-size:15px;opacity:.85;margin-top:2px}
+.contact{position:relative;display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start;padding:20px 0 100px}
+.contact h2{font-size:46px;margin-bottom:16px}.contact .ctext p{font-size:19px;margin:0}
+.contact .note{position:relative;left:auto;top:auto;grid-column:1/-1;justify-self:start;margin-bottom:-36px}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cform label{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700;color:var(--green-d)}
+.cform label span{font-weight:400;color:var(--body)}.cform label b{font-weight:700}
+.cform input,.cform textarea{font:16px Arimo,"Liberation Sans",Arial,sans-serif;color:var(--ink);background:#fff;border:1.5px solid var(--rule);border-radius:12px;padding:12px 14px}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--green)}
+.cform .full{grid-column:1/-1}.cform .btn{cursor:pointer}
+.cform .sent{margin:12px 0 0;color:var(--green-d);font-weight:700}
+.story{position:relative}.story .note{left:calc(50% - var(--w)/2 + 500px);top:40px}
+@media (max-width:760px){
+ .pick p{font-size:13px}
+ .pk .intro{font-size:16px;margin:-12px 0 24px}
+ .contact{grid-template-columns:1fr;gap:24px;padding:10px 0 64px}.contact h2{font-size:32px}.contact .ctext p{font-size:17px}
+ .contact .note{position:relative;top:auto;margin-bottom:6px}
+ .cform{grid-template-columns:1fr}
+ .story .note{position:relative;left:auto;top:auto;margin:14px 14px 0}
+}
+</style></head><body><div class=v id='v-mockup'><div class=banner>Follow the flowers- find us on social media <b>@thecoppertulip</b></div><div class=sc-down></div><header><div class='wrap hdr'><a class=logo href='#top-mockup' id='top-mockup'><img src='../../../brand/lockup-cream-no-gift-wrapping.png' alt='The Copper Tulip, pop-up flower bar'></a><nav><a href='#packages-mockup'>Packages</a><a href='#how-mockup'>How it works</a><a href='#extras-mockup'>Extras</a><a href='#faq-mockup'>FAQ</a><a href='#contact-mockup'>Contact</a></nav><a class='btn' href='https://portal.decodeautomation.com/book/copper-tulip' target='_blank' rel='noopener'>Book your event</a></div></header><div class=hero-wrap><section class=hero style="background-image:url('../../../photos/20267-31TheCopperTulip49.jpg');background-position:50% 62%"><div class=ph style="background-image:url('../../../photos/20267-31TheCopperTulip49.jpg');background-position:55% 60%"></div><div class=card><p class=eyebrow>Pop-up flower bar</p><h1>Fresh Flowers</h1><h2>Build Your Own Bouquet</h2><p>We set up our cart and create a space for your guests to pick their own flowers and create their own bouquet. An interactive party favor for corporate events, employee appreciation and brand launches.</p><div class=btns><a class='btn' href='https://portal.decodeautomation.com/book/copper-tulip' target='_blank' rel='noopener'>Book your event</a><a class='btn ghost' href='#packages-mockup'>See packages</a></div></div></section></div><div class=occ><span>Corporate events</span><span>Employee appreciation</span><span>Brand launches</span><span>Showers &amp; birthdays</span></div><div class=sc-down></div><section class='wrap meet' id='how-mockup'><div class=top><div><p class=eyebrow>Meet the flower bar</p><h2>A party activity, a centerpiece and a favor in one.</h2></div><p>Our cart, loaded with fresh stems in your colors. Every guest builds a bouquet and takes it home as their favor.</p></div><div class=steps><div class=step><div class=n>Step 1</div><h3><a href='https://portal.decodeautomation.com/book/copper-tulip' target='_blank' rel='noopener'>Request your event</a></h3><p>Pick your date and tell us a little about your event.</p></div><div class=step><div class=n>Step 2</div><h3>We reach out</h3><p>We will reach out to you to talk color, inspiration &amp; flower requests.</p></div><div class=step><div class=n>Step 3</div><h3>We bring the flower bar</h3><p>We set up our flower cart and help your guests create something they love.</p></div></div></section><section class='wrap feat'><div class=img style="background-image:url('../../../photos/20267-31TheCopperTulip62.jpg');background-position:50% 42%"></div><div><p class=eyebrow>Every guest goes home happy</p><h2>Small bouquet. Big moment.</h2><p>Waterproof bouquet wraps to complement your event and ribbon are included, so every guest leaves with a finished bouquet.</p></div></section><div class='sc-up pk-top'></div><section class=pk id='packages-mockup'><div class=wrap><p class=eyebrow>Packages</p><h2>Choose your flower bar.</h2><div class=pcards><div class=pc><div class=img style="background-image:url('../../../photos/20267-31TheCopperTulip55.jpg');background-position:50% 60%"></div><div class=b><h3>Classic</h3><div class=price>$40 <small>per guest</small></div><p class=desc>Our cart loaded with the perfect colorway for your event. This package is perfect for any flower lover and gives guests the perfect party favor to enjoy in their home.</p><ul><li>7–9 stems per bouquet</li><li>Roses, seasonal flowers, fillers and greenery</li><li>Wraps and ribbon included</li></ul><div class=sp></div><a class='btn' href='https://portal.decodeautomation.com/book/copper-tulip' target='_blank' rel='noopener'>Book the Classic</a></div></div><div class=pc><div class=img style="background-image:url('../../../photos/20267-31TheCopperTulip73.jpg');background-position:40% 50%"></div><div class=b><h3>Designer</h3><div class=price>$65 <small>per guest</small></div><p class=desc>A whimsical collection that brings in delicate blooms &amp; fun textures that you don’t see every day, with extra premium stems that create a designer feel, bringing movement and whimsy into every bouquet.</p><ul><li>12–14 stems per bouquet</li><li>Roses, seasonal flowers and fillers, plus premium stems</li><li>Wraps and ribbon included</li></ul><p class=fav>Some of our favorites in this package include anemones, ranunculus, imported fancy tulips, freesia and even dyed specialty flowers that create a whole vibe!</p><div class=sp></div><a class='btn' href='https://portal.decodeautomation.com/book/copper-tulip' target='_blank' rel='noopener'>Book the Designer</a></div></div></div><p class=both>Both packages include bar setup, clean up, and all supplies needed to make a bouquet. Waterproof bouquet wraps and ribbon are included; pre-ribboned flower holders are an upgrade.</p></div></section><div class='sc-down pk-bot'></div><section class='wrap seas'><div><p class=eyebrow>Seasonal bouquets</p><h2>Seasonal bouquets, ready to pre-order.</h2><p>Holiday bouquets and seasonal specials, ordered ahead. Pick yours, pay online, and pick it up.</p><a class=btn href='#top-mockup'>See seasonal bouquets</a></div><div class=img style="background-image:url('../../../photos/20267-31TheCopperTulip77.jpg');background-position:50% 45%"></div></section><div class=story-wrap><section class=story style="background-image:url('../../../photos/20267-31TheCopperTulip94.jpg');background-position:50% 30%"><div class=ph style="background-image:url('../../../photos/20267-31TheCopperTulip94.jpg');background-position:50% 8%"></div><div class=card><p class=eyebrow>Our story</p><h2>Hi, we’re Kily and Meg.</h2><p>We spend a lot of time around weddings and events, and around here it was mostly basic flower displays. Nobody was doing it like we wanted to, so we built a cart (and now a van!), loaded it with single stems, and let your guests do the fun part.</p></div></section></div><section class=ex id='extras-mockup'><div class=wrap><p class=eyebrow>Extras</p><h2>Need extra decor or something special?</h2><div class=exph><div role=img aria-label='Ribboned flower carriers' style="background-image:url('../../../photos/20267-31TheCopperTulip13.jpg');background-position:50% 45%"></div><div role=img aria-label='Arrangements' style="background-image:url('../../../photos/20267-31TheCopperTulip83.jpg');background-position:50% 55%"></div><div role=img aria-label='Bud vases' style="background-image:url('../../../photos/20267-31TheCopperTulip37.jpg');background-position:50% 40%"></div></div><div class=exl><div><h3>Vase add-on</h3><p>$5 each</p></div><div><h3>Ribboned flower carrier</h3><p>$4 each</p></div><div><h3>Flower crown</h3><p>$45</p></div><div><h3>Bud vase</h3><p>$35</p></div><div><h3>Small arrangement</h3><p>$65</p></div><div><h3>Large arrangement</h3><p>$120</p></div></div></div></section><section class='wrap faq' id='faq-mockup'><p class=eyebrow>Good to know</p><h2>Flower bar FAQs</h2><div class=list><div class=q><h3>What happens after I request a date?</h3><p>We reach out to talk color, inspiration and flower requests, then send a 50% deposit invoice. Pay within 7 days to hold your date.</p></div><div class=q><h3>How far ahead should I book?</h3><p>At least a week before your event.</p></div><div class=q><h3>Is there a minimum?</h3><p>Yes. Our event minimum is $600.</p></div><div class=q><h3>Can the party run longer than two hours?</h3><p>Yes. Extra time is $75 an hour.</p></div><div class=q><h3>We have more than 30 guests. Can you do it?</h3><p>Yes. We’ll put together a custom quote.</p></div><div class=q><h3>Can I add vases or flower carriers?</h3><p>Yes. Vases are $5 each and ribboned flower carriers are $4 each.</p></div></div></section><section class='wrap contact' id='contact-mockup'><div class=ctext><p class=eyebrow>Contact</p><h2>Questions?</h2><p>Arrangements, a big group, or something we didn’t cover? Send us a note and we’ll get back to you.</p></div><form class=cform onsubmit='event.preventDefault();this.querySelector(".sent").hidden=false;'><label>Name<input id='c-name-mockup' required autocomplete=name></label><label>Email<input id='c-email-mockup' type=email required autocomplete=email></label><label><b>Phone <span>(optional)</span></b><input id='c-phone-mockup' type=tel autocomplete=tel></label><label><b>Event date <span>(optional)</span></b><input id='c-date-mockup' type=date></label><label class=full>Message<textarea id='c-msg-mockup' rows=4 required></textarea></label><div class=full><button class=btn type=submit>Send message</button><p class=sent hidden>Thanks! Your message is on its way. (Mockup: nothing is sent.)</p></div></form></section><section class=end><p class=k>Let’s bloom</p><h2>Have a date in mind?</h2><p>Request your event and we’ll reach out to talk color, inspiration and flower requests.</p><a class='btn' href='https://portal.decodeautomation.com/book/copper-tulip' target='_blank' rel='noopener'>Book your event</a></section><div class='sc-up ft-top'></div><footer><div class='wrap row'><img src='../../../brand/lockup-cream-no-gift-wrapping.png' alt=''><div><h4>The Copper Tulip</h4><p>Pop-up flower bar</p></div><div><h4>Follow</h4><p>@thecoppertulip · Instagram · Facebook</p></div></div></footer></div>
+<script>
+(function(){
+ var sets=['mockup','voice'];
+ function show(k){sets.forEach(function(s){document.getElementById('v-'+s).hidden=(s!==k);});
+  document.querySelectorAll('.pick button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k);});}
+ document.querySelectorAll('.pick button').forEach(function(b){b.onclick=function(){show(b.dataset.k);
+  try{history.replaceState(null,'','#'+b.dataset.k)}catch(e){location.hash=b.dataset.k}window.scrollTo(0,0);};});
+ function fromHash(){var h=(location.hash||'').slice(1);if(sets.indexOf(h)>-1)show(h);}
+ window.addEventListener('hashchange',fromHash);show('mockup');fromHash();
+})();
+</script></body></html>
