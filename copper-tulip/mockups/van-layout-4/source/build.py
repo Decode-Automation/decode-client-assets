@@ -124,7 +124,7 @@ FOOTER_NOTE = ("Mockup for review. Photos are The Copper Tulip’s own. Logo is 
 # Review notes drawn on the frame (yellow tags). --no-notes removes them for the build.
 NOTES = {
     "logo": "Interim logo: closest lockup we have (cream). Swap for the light van logo file when Kily sends it.",
-    "seasonal": "Planned: Kily edits this section from her app.",
+    "seasonal": "Live from Kily’s app (Settings → Website): she turns it on or off and sets the heading, text, photo, button text and which pre-order page the button opens.",
     "contact": "Built in Replit: each message is saved to the site and emailed to Kily, with a “got it” reply to the sender (Resend). Needs her domain and her yes on the receiving email.",
     "story": "Draft from Kily’s emails and the kickoff call. Kily and Meg to confirm or rewrite.",
 }
@@ -152,7 +152,7 @@ header{position:relative}
 .hdr{display:flex;align-items:center;justify-content:space-between;height:150px}
 .logo{display:block;width:132px;height:132px;margin-top:-26px}
 .logo img{width:100%;height:100%;object-fit:contain;display:block}
-nav{display:flex;gap:34px;font-size:16.5px;color:var(--ink);margin-left:-60px}
+nav{display:flex;gap:30px;font-size:13.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d);margin-left:-60px}
 /* hero */
 .hero{position:relative;height:760px;background:#ddd center/cover no-repeat}
 .hero .ph,.story .ph{display:none}
