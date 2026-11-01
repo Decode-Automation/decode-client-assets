@@ -106,6 +106,10 @@ COPY["mockup"] = {
         ("We have more than 30 guests. Can you do it?", "Yes. We’ll put together a custom quote."),
         ("Can I add vases or flower carriers?", "Yes. Vases are $5 each and ribboned flower carriers are $4 each."),
     ],
+    "contact_eyebrow": "Contact",
+    "contact_h": "Questions?",
+    "contact_body": ("Arrangements, a big group, or something we didn’t cover? Send us a note "
+                     "and we’ll get back to you."),
     "end_kicker": "Let’s bloom",
     "end_h": "Have a date in mind?",
     "end_body": "Request your event and we’ll reach out to talk color, inspiration and flower requests.",
@@ -121,6 +125,7 @@ FOOTER_NOTE = ("Mockup for review. Photos are The Copper Tulip’s own. Logo is 
 NOTES = {
     "logo": "Interim logo: closest lockup we have (cream). Swap for the light van logo file when Kily sends it.",
     "seasonal": "Planned: Kily edits this section from her app.",
+    "contact": "Built in Replit: each message is saved to the site and emailed to Kily, with a “got it” reply to the sender (Resend). Needs her domain and her yes on the receiving email.",
     "story": "Draft from Kily’s emails and the kickoff call. Kily and Meg to confirm or rewrite.",
 }
 
@@ -223,7 +228,7 @@ nav{display:flex;gap:34px;font-size:16.5px;color:var(--ink);margin-left:-60px}
 .faq .q p{margin:0;font-size:16px}
 /* end */
 .end{background:var(--blush);text-align:center;padding:90px 20px 94px}
-.end .k{font-size:30px;color:var(--teal);margin:0}
+.end .k{font-size:30px;color:var(--teal);margin:0 auto}
 .end h2{font-size:48px;margin:0 0 20px}
 .end p{font-size:19px;max-width:560px;margin:0 auto 32px}
 .ft-top{--c:var(--peach);background-color:var(--blush)}
@@ -314,10 +319,23 @@ nav a{color:inherit;text-decoration:none}
 .step h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--peach);text-decoration-thickness:3px;text-underline-offset:5px}
 .pk .intro{color:#e8efe9;font-size:18px;margin:-24px 0 36px;max-width:720px}
 .exl .sub{font-size:15px;opacity:.85;margin-top:2px}
+.contact{position:relative;display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start;padding:20px 0 100px}
+.contact h2{font-size:46px;margin-bottom:16px}.contact .ctext p{font-size:19px;margin:0}
+.contact .note{position:relative;left:auto;top:auto;grid-column:1/-1;justify-self:start;margin-bottom:-36px}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cform label{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:700;color:var(--green-d)}
+.cform label span{font-weight:400;color:var(--body)}.cform label b{font-weight:700}
+.cform input,.cform textarea{font:16px Arimo,"Liberation Sans",Arial,sans-serif;color:var(--ink);background:#fff;border:1.5px solid var(--rule);border-radius:12px;padding:12px 14px}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--green)}
+.cform .full{grid-column:1/-1}.cform .btn{cursor:pointer}
+.cform .sent{margin:12px 0 0;color:var(--green-d);font-weight:700}
 .story{position:relative}.story .note{left:calc(50% - var(--w)/2 + 500px);top:40px}
 @media (max-width:760px){
  .pick p{font-size:13px}
  .pk .intro{font-size:16px;margin:-12px 0 24px}
+ .contact{grid-template-columns:1fr;gap:24px;padding:10px 0 64px}.contact h2{font-size:32px}.contact .ctext p{font-size:17px}
+ .contact .note{position:relative;top:auto;margin-bottom:6px}
+ .cform{grid-template-columns:1fr}
  .story .note{position:relative;left:auto;top:auto;margin:14px 14px 0}
 }
 """
@@ -341,7 +359,7 @@ def variant(key, notes):
     a("<header><div class='wrap hdr'>"
       f"<a class=logo href='#top-{k}' id='top-{k}'><img src='{LOGO}' alt='The Copper Tulip, pop-up flower bar'></a>"
       f"<nav><a href='#packages-{k}'>Packages</a><a href='#how-{k}'>How it works</a>"
-      f"<a href='#extras-{k}'>Extras</a><a href='#faq-{k}'>FAQ</a></nav>"
+      f"<a href='#extras-{k}'>Extras</a><a href='#faq-{k}'>FAQ</a><a href='#contact-{k}'>Contact</a></nav>"
       f"{book(c['cta'])}</div>")
     if notes: a(f"<div class=note>{esc(NOTES['logo'])}</div>")
     a("</header>")
@@ -392,6 +410,18 @@ def variant(key, notes):
     for q, ans in c["faq"]:
         a(f"<div class=q><h3>{esc(q)}</h3><p>{esc(ans)}</p></div>")
     a("</div></section>")
+    a(f"<section class='wrap contact' id='contact-{k}'>")
+    if notes: a(f"<div class=note>{esc(NOTES['contact'])}</div>")
+    a(f"<div class=ctext><p class=eyebrow>{esc(c['contact_eyebrow'])}</p><h2>{esc(c['contact_h'])}</h2>"
+      f"<p>{esc(c['contact_body'])}</p></div>"
+      f"<form class=cform onsubmit='event.preventDefault();this.querySelector(\".sent\").hidden=false;'>"
+      f"<label>Name<input id='c-name-{k}' required autocomplete=name></label>"
+      f"<label>Email<input id='c-email-{k}' type=email required autocomplete=email></label>"
+      f"<label><b>Phone <span>(optional)</span></b><input id='c-phone-{k}' type=tel autocomplete=tel></label>"
+      f"<label><b>Event date <span>(optional)</span></b><input id='c-date-{k}' type=date></label>"
+      f"<label class=full>Message<textarea id='c-msg-{k}' rows=4 required></textarea></label>"
+      f"<div class=full><button class=btn type=submit>Send message</button>"
+      f"<p class=sent hidden>Thanks! Your message is on its way. (Mockup: nothing is sent.)</p></div></form></section>")
     a(f"<section class=end><p class=k>{esc(c['end_kicker'])}</p><h2>{esc(c['end_h'])}</h2>"
       f"<p>{esc(c['end_body'])}</p>{book(c['cta'])}</section>")
     a("<div class='sc-up ft-top'></div><footer><div class='wrap row'>"
